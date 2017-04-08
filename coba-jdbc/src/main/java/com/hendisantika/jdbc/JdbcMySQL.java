@@ -26,7 +26,7 @@ public class JdbcMySQL {
         try {
             connection = DriverManager
 //                    .getConnection("jdbc:mysql://localhost:3306/tesDB","root", "root"); // MySQL <= 5
-                    .getConnection("jdbc:mysql://localhost/tesDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC\n","root", "root"); // > 5
+                    .getConnection("jdbc:mysql://localhost/trainingDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC\n","root", "root"); // > 5
 
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
