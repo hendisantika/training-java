@@ -1,25 +1,28 @@
-package com.hendisantika.jdbc;
+package com.hendisantika.jdbc.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by hendisantika on 4/8/17.
- * jdbc-statement-example-create-a-table
  */
-public class JDBCStatementCreateExample {
+public class JDBCStatementInsertExample {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
+    private static final DateFormat dateFormat = new SimpleDateFormat(
+            "yyyy/MM/dd HH:mm:ss");
 
     public static void main(String[] argv) {
 
         try {
 
-            createDbUserTable();
+            insertRecordIntoDbUserTable();
 
         } catch (SQLException e) {
 
@@ -29,27 +32,26 @@ public class JDBCStatementCreateExample {
 
     }
 
-    private static void createDbUserTable() throws SQLException {
+    private static void insertRecordIntoDbUserTable() throws SQLException {
 
         Connection dbConnection = null;
         Statement statement = null;
 
-        String createTableSQL = "CREATE TABLE DBUSER("
-                + "USER_ID INT(5) NOT NULL, "
-                + "USERNAME VARCHAR(20) NOT NULL, "
-                + "CREATED_BY VARCHAR(20) NOT NULL, "
-                + "CREATED_DATE DATE NOT NULL, " + "PRIMARY KEY (USER_ID) "
-                + ")";
+        String insertTableSQL = "INSERT INTO DBUSER"
+                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
+                + "(1,'hendisantika','system',"
+                + "'" + getCurrentTimeStamp() + "')";
 
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
 
-            System.out.println(createTableSQL);
-            // execute the SQL stetement
-            statement.execute(createTableSQL);
+            System.out.println(insertTableSQL);
 
-            System.out.println("Table \"dbuser\" is created!");
+            // execute insert SQL stetement
+            statement.executeUpdate(insertTableSQL);
+
+            System.out.println("Record is inserted into DBUSER table!");
 
         } catch (SQLException e) {
 
@@ -96,6 +98,13 @@ public class JDBCStatementCreateExample {
         }
 
         return dbConnection;
+
+    }
+
+    private static String getCurrentTimeStamp() {
+
+        java.util.Date today = new java.util.Date();
+        return dateFormat.format(today.getTime());
 
     }
 

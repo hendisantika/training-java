@@ -1,4 +1,4 @@
-package com.hendisantika.jdbc;
+package com.hendisantika.jdbc.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
