@@ -1,28 +1,24 @@
 package com.hendisantika.jdbc.mysql;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.*;
+
+import static com.hendisantika.jdbc.mysql.JDBCStatementInsertExample.dateFormat;
+
 
 /**
  * Created by hendisantika on 4/8/17.
  */
-public class JDBCStatementInsertExample {
+public class JDBCBatchUpdateExample {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
-    public static final DateFormat dateFormat = new SimpleDateFormat(
-            "yyyy/MM/dd HH:mm:ss");
 
     public static void main(String[] argv) {
 
         try {
 
-            insertRecordIntoDbUserTable();
+            batchInsertRecordsIntoTable();
 
         } catch (SQLException e) {
 
@@ -32,26 +28,38 @@ public class JDBCStatementInsertExample {
 
     }
 
-    private static void insertRecordIntoDbUserTable() throws SQLException {
+    private static void batchInsertRecordsIntoTable() throws SQLException {
 
         Connection dbConnection = null;
         Statement statement = null;
 
-        String insertTableSQL = "INSERT INTO DBUSER"
+        String insertTableSQL1 = "INSERT INTO DBUSER"
                 + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
-                + "(1,'hendisantika','system',"
-                + "'" + getCurrentTimeStamp() + "')";
+                + "(101,'sasuke','system', " + "'" + getCurrentTimeStamp() + "')";
+
+        String insertTableSQL2 = "INSERT INTO DBUSER"
+                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
+                + "(102,'sakura','system', " + "'" + getCurrentTimeStamp() + "')";
+
+        String insertTableSQL3 = "INSERT INTO DBUSER"
+                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
+                + "(103,'kakashi','system', "+ "'" + getCurrentTimeStamp() + "')";
 
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
 
-            System.out.println(insertTableSQL);
+            dbConnection.setAutoCommit(false);
 
-            // execute insert SQL stetement
-            statement.executeUpdate(insertTableSQL);
+            statement.addBatch(insertTableSQL1);
+            statement.addBatch(insertTableSQL2);
+            statement.addBatch(insertTableSQL3);
 
-            System.out.println("Record is inserted into DBUSER table!");
+            statement.executeBatch();
+
+            dbConnection.commit();
+
+            System.out.println("Records are inserted into DBUSER table!");
 
         } catch (SQLException e) {
 
@@ -102,10 +110,12 @@ public class JDBCStatementInsertExample {
     }
 
     private static String getCurrentTimeStamp() {
+//    private static Date getCurrentTimeStamp() {
 
         java.util.Date today = new java.util.Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat();
+//        return sdf.format(today.getTime());
         return dateFormat.format(today.getTime());
-
+//        return new java.sql.Date(today.getTime());
     }
-
 }

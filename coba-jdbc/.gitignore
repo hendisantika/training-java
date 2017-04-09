@@ -70,3 +70,4 @@ fabric.properties
 .idea/
 coba-jdbc.iml
 target/
+src/test/

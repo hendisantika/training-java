@@ -2,27 +2,24 @@ package com.hendisantika.jdbc.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by hendisantika on 4/8/17.
  */
-public class JDBCStatementInsertExample {
+public class JDBCPreparedStatementInsertExample {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+//    private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
-    public static final DateFormat dateFormat = new SimpleDateFormat(
-            "yyyy/MM/dd HH:mm:ss");
 
     public static void main(String[] argv) {
 
         try {
 
-            insertRecordIntoDbUserTable();
+            insertRecordIntoTable();
 
         } catch (SQLException e) {
 
@@ -32,24 +29,26 @@ public class JDBCStatementInsertExample {
 
     }
 
-    private static void insertRecordIntoDbUserTable() throws SQLException {
+    private static void insertRecordIntoTable() throws SQLException {
 
         Connection dbConnection = null;
-        Statement statement = null;
+        PreparedStatement preparedStatement = null;
 
         String insertTableSQL = "INSERT INTO DBUSER"
-                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
-                + "(1,'hendisantika','system',"
-                + "'" + getCurrentTimeStamp() + "')";
+                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) VALUES"
+                + "(?,?,?,?)";
 
         try {
             dbConnection = getDBConnection();
-            statement = dbConnection.createStatement();
+            preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 
-            System.out.println(insertTableSQL);
+            preparedStatement.setInt(1, 3);
+            preparedStatement.setString(2, "naruto");
+            preparedStatement.setString(3, "system");
+            preparedStatement.setTimestamp(4, getCurrentTimeStamp());
 
             // execute insert SQL stetement
-            statement.executeUpdate(insertTableSQL);
+            preparedStatement.executeUpdate();
 
             System.out.println("Record is inserted into DBUSER table!");
 
@@ -59,8 +58,8 @@ public class JDBCStatementInsertExample {
 
         } finally {
 
-            if (statement != null) {
-                statement.close();
+            if (preparedStatement != null) {
+                preparedStatement.close();
             }
 
             if (dbConnection != null) {
@@ -101,10 +100,10 @@ public class JDBCStatementInsertExample {
 
     }
 
-    private static String getCurrentTimeStamp() {
+    private static java.sql.Timestamp getCurrentTimeStamp() {
 
         java.util.Date today = new java.util.Date();
-        return dateFormat.format(today.getTime());
+        return new java.sql.Timestamp(today.getTime());
 
     }
 

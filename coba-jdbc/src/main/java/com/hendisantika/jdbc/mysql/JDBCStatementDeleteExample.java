@@ -4,25 +4,22 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by hendisantika on 4/8/17.
  */
-public class JDBCStatementInsertExample {
+public class JDBCStatementDeleteExample {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    //    private static final String DB_CONNECTION = "jdbc:mysql://localhost/trainingDB";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
-    public static final DateFormat dateFormat = new SimpleDateFormat(
-            "yyyy/MM/dd HH:mm:ss");
 
     public static void main(String[] argv) {
 
         try {
 
-            insertRecordIntoDbUserTable();
+            deleteRecordFromDbUserTable();
 
         } catch (SQLException e) {
 
@@ -32,26 +29,23 @@ public class JDBCStatementInsertExample {
 
     }
 
-    private static void insertRecordIntoDbUserTable() throws SQLException {
+    private static void deleteRecordFromDbUserTable() throws SQLException {
 
         Connection dbConnection = null;
         Statement statement = null;
 
-        String insertTableSQL = "INSERT INTO DBUSER"
-                + "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
-                + "(1,'hendisantika','system',"
-                + "'" + getCurrentTimeStamp() + "')";
+        String deleteTableSQL = "DELETE FROM DBUSER WHERE USER_ID = 3";
 
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
 
-            System.out.println(insertTableSQL);
+            System.out.println(deleteTableSQL);
 
-            // execute insert SQL stetement
-            statement.executeUpdate(insertTableSQL);
+            // execute delete SQL stetement
+            statement.execute(deleteTableSQL);
 
-            System.out.println("Record is inserted into DBUSER table!");
+            System.out.println("Record is deleted from DBUSER table!");
 
         } catch (SQLException e) {
 
@@ -100,12 +94,4 @@ public class JDBCStatementInsertExample {
         return dbConnection;
 
     }
-
-    private static String getCurrentTimeStamp() {
-
-        java.util.Date today = new java.util.Date();
-        return dateFormat.format(today.getTime());
-
-    }
-
 }
