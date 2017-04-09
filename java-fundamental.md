@@ -71,8 +71,6 @@ java Halo
     2. Menggunakan perintah `set` (Windows) atau `export` (Linux/Mac). Contoh : `set CLASSPATH=bin`
     3. Setting di Environment Variable untuk user maupun keseluruhan system (**tidak dianjurkan**).
 
-Untuk lebih jelasnya bisa disimak dalam [penjelasan saya di Youtube](https://www.youtube.com/watch?v=A3sM9ePaBvw)
-
 ## Membuat Package ##
 
 * Kode program Java dipaketkan dalam file `jar`
@@ -82,7 +80,7 @@ Untuk lebih jelasnya bisa disimak dalam [penjelasan saya di Youtube](https://www
 * Contoh:
 
 ```
-java -cp belajar.jar com.muhardin.endy.belajar.java.Halo
+java -cp belajar.jar com.hendisantika.belajar.java.Halo
 ```
 
 * Perlu diperhatikan juga, file zip tersebut harus langsung berisi nama package. Dalam contoh di atas, berarti file belajar.jar harus memiliki folder `com` pada saat dibuka dengan WinZIP 
