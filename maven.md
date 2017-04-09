@@ -37,7 +37,7 @@ Berikut adalah `pom.xml` yang paling sederhana.
 ```xml
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.muhardin.belajar.java</groupId>
+  <groupId>com.hendisantika.belajar.java</groupId>
   <artifactId>belajar-maven</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -60,7 +60,7 @@ Untuk menggunakan library, kita tambahkan blok `dependency` sehingga `pom.xml` n
 ```xml
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.muhardin.belajar.java</groupId>
+  <groupId>com.hendisantika.belajar.java</groupId>
   <artifactId>belajar-maven</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -105,5 +105,5 @@ mvn clean package
 Misalnya kita punya class `Halo` yang ada dalam package `com.muhardin.endy.belajar.java`. Berikut perintah untuk menjalankannya dengan Maven
 
 ```
-mvn clean package exec:java -Dexec.mainClass=com.muhardin.endy.belajar.java.Halo
+mvn clean package exec:java -Dexec.mainClass=com.hendisantika.belajar.java.Halo
 ```
