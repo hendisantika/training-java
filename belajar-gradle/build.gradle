@@ -1,0 +1,23 @@
+group 'com.hendisantika.gradle'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+// cara lain
+ mainClassName = "com.hendisantika.belajar.App"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+//task execute(type:JavaExec) {
+//    main = mainClass
+//    classpath = sourceSets.main.runtimeClasspath
+//}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
