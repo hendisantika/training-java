@@ -1,6 +1,6 @@
 # Spring Boot Hello World Example – JSP
 
-A Spring Boot web application example, using embedded Tomcat + JSP template, and package as an executable WAR file.
+A [Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-first-application.html) web application example, using embedded Tomcat + JSP template, and package as an executable WAR file.
 
 Technologies used :
 

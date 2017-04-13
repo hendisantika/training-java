@@ -31,9 +31,6 @@ Serangkaian materi ajar untuk Training JAVA
 - Security
 - Deployment
   - Local
-  - Cloud
-    - Openshift
-    - Heroku
 
 ## Hari 4 ##
 - Jasper Report 
