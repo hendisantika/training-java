@@ -85,7 +85,7 @@ Untuk menggunakan library, kita tambahkan blok `dependency` sehingga `pom.xml` n
 Perintah untuk compile adalah sebagai berikut
 
 ```
-mvn package
+mvn compile
 ```
 
 Untuk menghapus hasil compile, berikut perintahnya
