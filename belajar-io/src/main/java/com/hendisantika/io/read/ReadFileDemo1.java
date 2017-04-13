@@ -8,9 +8,10 @@ import java.io.*;
 public class ReadFileDemo1 {
     public static void main(String[] args) {
         //Specify the path of the file here
-        File file = new File("/tmp/newfile.txt");
+//        File file = new File("/tmp/newfile.txt");
+        File file = new File("/tmp/myfile.txt");
         BufferedInputStream bis = null;
-        FileInputStream fis= null;
+        FileInputStream fis = null;
 
         try
         {
