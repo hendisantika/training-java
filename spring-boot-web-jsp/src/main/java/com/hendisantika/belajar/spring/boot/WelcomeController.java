@@ -19,4 +19,9 @@ public class WelcomeController {
 		return "welcome";
 	}
 
+	@RequestMapping("/hai")
+	public String hai(){
+		return "Hai ....";
+	}
+
 }

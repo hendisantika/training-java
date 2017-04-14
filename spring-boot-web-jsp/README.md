@@ -4,7 +4,7 @@ A [Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/html/ge
 
 Technologies used :
 
-1. Spring Boot 1.4.2.RELEASE
+1. Spring Boot 1.5.2.RELEASE
 2. Spring 4.3.7.RELEASE
 3. Tomcat Embed 8.5.6
 4. Maven 3
