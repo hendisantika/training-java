@@ -19,4 +19,4 @@ admin/admin (role=ADMIN)
 ##Screenshot##
 
 ![Screenshot](http://juhahinkula.github.com/img/manytomany_list.png)
-
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/studentlist.png?raw=true "Optional Title")
