@@ -19,4 +19,4 @@ open terminal :
 `curl --data "title=Start Wars&year=2016" http://localhost:8080/movies/delete?id=1`
 
 
-(Spring Data JPA)[https://docs.spring.io/spring-data/jpa/docs/current/reference/html/]
+[Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
