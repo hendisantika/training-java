@@ -4,6 +4,7 @@ Simple CRUD application made with Spring Boot
 - Spring Boot
 - Thymeleaf
 - H2 database
+- MySQL Database
 - Bootstrap
 
 Usage (with eclipse):
@@ -18,5 +19,17 @@ admin/admin (role=ADMIN)
 
 ##Screenshot##
 
-![Screenshot](http://juhahinkula.github.com/img/manytomany_list.png)
-![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/studentlist.png?raw=true "Optional Title")
+Login
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/login.png?raw=true "Optional Title")
+
+Signup
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/signup.png?raw=true "Optional Title")
+
+List Students
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/studentlist2.png?raw=true "Optional Title")
+
+Add Student
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/addstudent.png?raw=true "Optional Title")
+
+Add Course
+![Screenshot](https://github.com/hendisantika/training-java/blob/master/StudentListFinal/images/course.png?raw=true "Optional Title")
