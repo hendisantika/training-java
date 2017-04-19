@@ -52,7 +52,7 @@ public class CrudbootApplication {
             student1.setCourses(courses);
             repository.save(student1);
 
-            // Create users with BCrypt encoded password (user/user, admin/admin)
+            // Create users with BCrypt encoded password (user/user, admin/admin, hendi/hendi86)
             User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
             User user2 = new User("admin", "$2a$08$bCCcGjB03eulCWt3CY0AZew2rVzXFyouUolL5dkL/pBgFkUH9O4J2", "ADMIN");
             User user3 = new User("hendi", "$2a$10$RXXuwZiWHimmP.0F9t.p4.k8jgO4ir/Jj4xIGig7i5BtF/P6afbRa", "ADMIN");

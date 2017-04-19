@@ -14,7 +14,7 @@ import com.hendisantika.studentlist.service.UserDetailServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("fi.haagahelia.course")
+@ComponentScan("com.hendisantika.studentlist")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailServiceImpl userDetailsService;
