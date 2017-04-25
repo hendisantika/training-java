@@ -2,19 +2,14 @@ package com.transkom.pelatihan.controller;
 
 import com.transkom.pelatihan.dao.PesertaDao;
 import com.transkom.pelatihan.entity.Peserta;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
@@ -28,11 +23,9 @@ public class PesertaController {
         return pd.findAll(page);
     }
     
-    @RequestMapping(value="/peserta", method = RequestMethod.POST)
+    @RequestMapping(value="/peserta", method = RequestMethod.POST, consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void insertPesertaBaru(@RequestBody @Valid Peserta p){
-        pd.save(p);
-    }
+    public void insertPesertaBaru(@RequestBody @Valid Peserta p){ pd.save(p);}
     
     @RequestMapping(value="/peserta/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
