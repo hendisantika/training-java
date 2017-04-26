@@ -2,12 +2,6 @@ package com.transkom.pelatihan.controller;
 
 import com.transkom.pelatihan.dao.PesertaDao;
 import com.transkom.pelatihan.entity.Peserta;
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -19,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/peserta")
@@ -81,7 +81,7 @@ public class PesertaHtmlController {
         
         String lokasiPath = "/upload";
         String lokasiTomcat = session.getServletContext().getRealPath(lokasiPath);
-        System.out.println("Lokasi Tomcat dijalankan : "+lokasiTomcat);
+        System.out.println("Lokasi Tomcat dijalankan : " + lokasiTomcat);
         String lokasiTujuan = lokasiTomcat + File.separator;
         
         //String homeFolder = System.getProperty("user.home");

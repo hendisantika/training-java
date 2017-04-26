@@ -38,7 +38,7 @@ and open the template in the editor.
                 <li><a th:href="@{/peserta/list}">List Peserta</a></li>
                 <li><a th:href="@{/api/materi}">Materi</a></li>
                 <li><a th:href="@{/materi}">Report Materi</a></li>
-                <li><a th:href="@{/upload-form}">Upload</a></li>
+                <li><a th:href="@{/upload}">Upload</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <form class="navbar-form navbar-right" method="post" th:action="@{/logout}">
@@ -49,43 +49,9 @@ and open the template in the editor.
     </div>
 </nav>
 
-<!--<nav class="navbar navbar-inverse">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" href="#">Transkom</a>-->
-        <!--</div>-->
-        <!--<ul class="nav navbar-nav">-->
-            <!--<li class="active"><a href="#">Home</a></li>-->
-            <!--<li class="dropdown">-->
-                <!--<a class="dropdown-toggle" data-toggle="dropdown" href="">Peserta-->
-                    <!--<span class="caret"></span></a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a th:href="@{/peserta/form}">Insert Peserta</a></li>-->
-                    <!--<li><a th:href="@{/peserta/list}">List Peserta</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <!--<li class="dropdown">-->
-                <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Materi-->
-                    <!--<span class="caret"></span></a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--&lt;!&ndash;<li><a th:href="@{/api/materi/}">Insert Materi</a></li>&ndash;&gt;-->
-                    <!--<li><a th:href="@{/api/materi}">List Materi</a></li>-->
-                    <!--<li><a th:href="@{/materi}">Report Materi</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <!--<li><a th:href="@{/upload}">Upload</a></li>-->
-            <!--<li><a href="#">Contact</a></li>-->
-            <!--<li><a href="#">About</a></li>-->
-            <!--<form class="navbar-form navbar-right" method="post" th:action="@{/logout}">-->
-                <!--<input type="submit" class="btn" value="Logout"/>-->
-            <!--</form>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</nav>-->
 
-<div class="container" th:replace="${view} :: content">Disini content</div>
-<div>Disini footer</div>
-
+<div class="container" th:replace="${view} :: content">Di sini content</div>
+<div>Di sini footer</div>
 
 </body>
 </html>
