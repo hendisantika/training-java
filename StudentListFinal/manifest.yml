@@ -1,0 +1,6 @@
+---
+applications:
+- name: student-list-final
+  instances: 1
+  host: student-list-final-${random-word}
+  path: target/student-list-final-0.0.1.SNAPSHOT.jar
